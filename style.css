@@ -106,7 +106,49 @@ li>a{
 .custom-img{
   width: 15px;
   height: 15px;
+  border: 0;
+  background-color: transparent;
+}
+.card-img{
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+#full-view-button{
+  border: 0;
+  background-color: white;
+  transition: 0.5s;
+}
+#full-view-button:hover{
+  transform: scale(1.2);
+  border: 1px dotted gray;
 }
 #head-text{
   text-shadow: 1px 1px 5px white;
+}
+.hover-over-image{
+  transition: 0.3s;
+  position: relative;
+}
+.hover-over-image:hover{
+  transform: scale(1.05);
+}
+.text-block {
+  position: absolute;
+  bottom: 5px;
+  right: 20px;
+  background-color: black;
+  color: white;
+}
+#single-image{
+  display: none;
+}
+.margin-left-50{
+  margin-left: 150px;
+}
+.thumbIMG{
+  width: 380px !important;
+  
 }

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Title</title>
+  <title>Image Finder</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -95,6 +95,48 @@
     <section id="alert">
       <div class="alert alert-danger" role="alert">
         Sorry, we couldn't find any matches.
+      </div>
+    </section>
+
+    <!-- Single image view -->
+    <section id="single-image">
+      <div class="d-flex justify-content-center">
+        <div class="card mb-3" style="max-width: 700px;">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img id="card-image" class="thumbIMG" src="" alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body margin-left-50">
+                <div class="d-flex flex-column">
+                  <div class="d-flex">
+                    <img class="card-img" src="images/downloads.png" alt="">
+                    <h5 id="downloads">Downloads: 100</h5>
+                  </div>
+
+                  <div class="d-flex">
+                    <img class="card-img" src="images/favourite.png" alt="">
+                    <h5 id="favorites">Favorites: 100</h5>
+                  </div>
+
+                  <div class="d-flex">
+                    <img class="card-img" src="images/likes.png" alt="">
+                    <h5 id="likes">Likes: 100</h5>
+                  </div>
+
+                  <div class="d-flex">
+                    <img class="card-img" src="images/views.png" alt="">
+                    <h5 id="views">Views: 100</h5>
+                  </div>
+                </div>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                <div class="mt-5 d-flex justify-content-center">
+                  <button onclick="goBack()" class="btn btn-info">Back</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 

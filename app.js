@@ -19,13 +19,19 @@ const showImages = (images) => {
     setSpinner(false);
     setBackgroundActivity('hideBackground');
     imagesArea.style.display = 'block';
-    gallery.innerHTML = '';
     // show gallery title
     galleryHeader.style.display = 'flex';
+    document.getElementById('selection-text').innerText = 'Select image to create slider';
     images.forEach(image => {
       let div = document.createElement('div');
-      div.className = 'col-lg-3 col-md-4 col-xs-6 img-item mb-2';
-      div.innerHTML = ` <img class="img-fluid img-thumbnail" onclick=selectItem(event,"${image.webformatURL}") src="${image.webformatURL}" alt="${image.tags}">`;
+      div.className = 'col-lg-3 col-md-4 col-xs-6 img-item mb-2 hover-over-image w-100 h-100';
+      div.innerHTML = ` 
+        <img class="img-fluid img-thumbnail" onclick=selectItem(event,"${image.webformatURL}") src="${image.webformatURL}" alt="${image.tags}">
+        <div class='text-block'>
+          <button onclick='singleImageViewer("${image.downloads}", "${image.favorites}", "${image.largeImageURL}", "${image.likes}", "${image.views}")' id='full-view-button'>
+            <img class='custom-img' src='images/expand.png' alt=''>
+          </button>
+        </div>`;
       gallery.appendChild(div)
     })
   }
@@ -41,6 +47,25 @@ const getImages = (query) => {
     .then(response => response.json())
     .then(data => showImages(data.hits))
     .catch(err => console.log(err))
+}
+
+const singleImageViewer = (downloads, favorites, imgURL, likes, views) => {
+  setSingleImageView(true);
+  console.log("Entered");
+  document.getElementById('downloads').innerText = 'Downloads: ' + downloads;
+  document.getElementById('favorites').innerText = 'Downloads: ' + favorites;
+  document.getElementById('likes').innerText = 'Downloads: ' + likes;
+  document.getElementById('views').innerText = 'Downloads: ' + views;
+  document.getElementById('card-image').src = imgURL;
+}
+const setSingleImageView = value => {
+  if (value) {
+    document.getElementById('single-image').style.display = 'block';
+    imagesArea.style.display = 'none';
+  }
+  else {
+    document.getElementById('single-image').style.display = 'none';
+  }
 }
 
 let slideIndex = 0;
@@ -144,12 +169,14 @@ const setAlert = value => {
 }
 
 searchBtn.addEventListener('click', function () {
+  setSingleImageView(false);
   setSpinner(true);
   setAlert(false);
   document.querySelector('.main').style.display = 'none';
   clearInterval(timer);
   const search = document.getElementById('search');
-  getImages(search.value)
+  clearGallery();
+  getImages(search.value);
   sliders.length = 0;
 })
 
@@ -178,4 +205,15 @@ const setModal = string => {
   document.getElementById('modal-title').innerText = "Warning";
   document.getElementById('model-body').innerText = string;
   document.getElementById('modal-button').click();
+}
+
+const clearGallery = () => {
+  gallery.innerHTML = '';
+  galleryHeader.style.display = 'none';
+}
+
+const goBack = () => {
+  setSingleImageView(false);
+  imagesArea.style.display = 'block';
+  galleryHeader.style.display = 'flex';
 }
