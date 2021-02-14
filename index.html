@@ -41,10 +41,12 @@
 
       <!-- Search Section -->
       <section id="search-section">
-        <h2 id="head-text" class="mt-2 text-center text-dark font-weight-bold">Explore the world with your fingertips</h2>
+        <h2 id="head-text" class="mt-2 text-center text-dark font-weight-bold">Explore the world with your fingertips
+        </h2>
         <div class="form-inline mt-5 d-flex justify-content-center">
           <div class="input-group col-md-6 mb-2 mt-4">
-            <input type="text" class="form-control" id="search" placeholder="&#xf002 nature" style="font-family: FontAwesome;">
+            <input type="text" class="form-control" id="search" placeholder="&#xf002 nature"
+              style="font-family: FontAwesome;">
             <button type="button" id="search-btn" class="btn btn-primary mb-2 shadow">Search</button>
           </div>
         </div>
@@ -52,54 +54,84 @@
   </section>
 
   <section class="container">
-    <!-- Spinner -->
-  <section id="spinner">
-    <center>
-      <button class="btn btn-success" type="button" disabled>
-        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-        Loading...
+    <!-- Modal -->
+    <section>
+      <!-- Button trigger modal -->
+      <button id="modal-button" type="button" class="btn btn-primary" data-bs-toggle="modal"
+        data-bs-target="#exampleModal" hidden>
+        Launch demo modal
       </button>
-    </center>
-  </section>
 
-  <!-- Alert -->
-  <section id="alert">
-    <div class="alert alert-danger" role="alert">
-      Sorry, we couldn't find any matches.
-    </div>
-  </section>
-
-  <!---->
-  <section class="images">
-    <div class="justify-content-around align-items-center mt-3 gallery-header mb-2">
-      <h3 class="head-title text-center">Select image to create slider</h3>
-      <div class="input-group col-md-3 mb-2 mb-md-0">
-        <input class="form-control" id="duration" placeholder="slider change duration">
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 id="modal-title" class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div id="model-body" class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">I Understood</button>
+            </div>
+          </div>
+        </div>
       </div>
-      <button id="create-slider" class="btn btn-primary px-5">Create slider</button>
-    </div>
-    <div class="row gallery">
-
-    </div>
-  </section>
-  
-  <!-- slider -->
-  <div class="main">
-    <section class="mt-5" id="sliders">
-
     </section>
-    <div class="dots d-flex mt-2 w-100 justify-content-center align-items-center bg-light">
-      <span class="dot" onclick="changeItem(-1)"></span>
-      <span class="dot" onclick="changeItem(1)"></span>
+
+    <!-- Spinner -->
+    <section id="spinner">
+      <center>
+        <button class="btn btn-success" type="button" disabled>
+          <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+          Loading...
+        </button>
+      </center>
+    </section>
+
+    <!-- Alert -->
+    <section id="alert">
+      <div class="alert alert-danger" role="alert">
+        Sorry, we couldn't find any matches.
+      </div>
+    </section>
+
+    <!---->
+    <section class="images">
+      <div class="justify-content-around align-items-center mt-2 gallery-header mb-5">
+        <h3 id="selection-text" class="head-title text-center">Select image to create slider</h3>
+        <div class="input-group col-md-3 mb-2 mb-md-0">
+          <input class="form-control" id="duration" placeholder="slider change duration">
+        </div>
+        <button id="create-slider" class="btn btn-primary px-5">Create slider</button>
+      </div>
+      <div class="row gallery">
+      </div>
+    </section>
+
+    <!-- slider -->
+    <div class="main">
+      <section class="mt-5" id="sliders">
+
+      </section>
+      <div class="dots d-flex mt-2 w-100 justify-content-center align-items-center bg-light">
+        <span class="dot" onclick="changeItem(-1)"></span>
+        <span class="dot" onclick="changeItem(1)"></span>
+      </div>
     </div>
-  </div>
-  </div>
+    </div>
   </section>
 
   <!-- Optional JavaScript -->
   <script src="./app.js"></script>
   <!-- Font awesome script -->
   <script src="https://kit.fontawesome.com/yourcode.js"></script>
+  <!-- Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>

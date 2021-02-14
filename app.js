@@ -49,26 +49,27 @@ const selectItem = (event, img) => {
   element.classList.add('added');
 
   let item = sliders.indexOf(img);
-  console.log(item);
   if (item === -1) {
     sliders.push(img);
+    document.getElementById('selection-text').innerText = `${sliders.length} Selected`;
   } else {
     element.classList.remove('added');
     const indexOfImg = sliders.indexOf(img);
     sliders.splice(indexOfImg, 1);
+    document.getElementById('selection-text').innerText = `${sliders.length} Selected`;
   }
 }
 var timer
 const createSlider = () => {
   // check slider image length
   if (sliders.length < 2) {
-    alert('Select at least 2 image.')
+    setModal("Select at least 2 images");
     return;
   }
   // check valid duration value
   const duration = document.getElementById('duration').value || 1000;
   if (duration <= 0) {
-    alert("Invalid duration input!");
+    setModal("Please provide valid number");
     return;
   }
   // crate slider previous next area
@@ -171,4 +172,10 @@ const setBackgroundActivity = value => {
     searchSection.style.marginBottom = "50px";
     document.querySelector('#head-text').innerText = "";
   }
+}
+
+const setModal = string => {
+  document.getElementById('modal-title').innerText = "Warning";
+  document.getElementById('model-body').innerText = string;
+  document.getElementById('modal-button').click();
 }
